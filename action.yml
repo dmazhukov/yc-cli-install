@@ -38,4 +38,5 @@ runs:
       if: ${{ inputs.SA_KEY }}
       shell: bash
       run:
-        yc config set service-account-key <(echo '${{ inputs.SA_KEY }}')
+        echo '${{ inputs.SA_KEY }}' > /tmp/key.json
+        yc config set service-account-key /tmp/key.json
